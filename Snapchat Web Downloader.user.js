@@ -6,6 +6,7 @@
 // @match        https://www.snapchat.com/web*
 // @run-at       document-start
 // @icon         https://www.snapchat.com/web/version/17424f89/favicon.png
+// @updateURL    https://github.com/danthekidd/Snapchat-Web-Downloader/raw/refs/heads/main/Snapchat%20Web%20Downloader.user.js
 // @grant        none
 // ==/UserScript==
 
