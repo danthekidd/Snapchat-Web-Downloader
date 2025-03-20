@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Snapchat Web Downloader
-// @version      1.0.0
+// @version      1.1.0
 // @description  we want snaps!
 // @author       danthekidd
 // @match        https://www.snapchat.com/web*
@@ -10,8 +10,22 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(function () {
     document.hasFocus = () => true;
+
+    document.addEventListener('keydown', function (event) {
+        const focusedElement = document.activeElement;
+        const isEditable = ['INPUT', 'TEXTAREA', 'SELECT'].includes(focusedElement.tagName);
+        const role = focusedElement.getAttribute('role');
+
+        if ((event.ctrlKey || event.shiftKey) && !isEditable && role !== 'textbox') {
+            event.stopImmediatePropagation();
+        }
+    });
+
+    document.addEventListener('contextmenu', function (event) {
+        event.stopImmediatePropagation()
+    });
 
     function addDownloadButtonToImages() {
         const images = document.querySelectorAll('.dCE9D');
